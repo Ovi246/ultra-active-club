@@ -5,6 +5,7 @@ import Card from "../src/components/Card";
 function App() {
   const [data, setData] = useState([]);
   const [workoutTime, setWorkoutTime] = useState(0);
+  const [breakTime, setBreakTime] = useState(0);
   const [loading, setLoading] = useState(false);
 
   async function fetchData() {
@@ -81,11 +82,11 @@ function App() {
           </div>
           <h6 className="mt-5">Add Break</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-evenly">
-            <p>10s</p>
-            <p>30s</p>
-            <p>20s</p>
-            <p>40s</p>
-            <p>50s</p>
+            <p onClick={() => setBreakTime(10)}>10s</p>
+            <p onClick={() => setBreakTime(30)}>30s</p>
+            <p onClick={() => setBreakTime(20)}>20s</p>
+            <p onClick={() => setBreakTime(40)}>40s</p>
+            <p onClick={() => setBreakTime(50)}>50s</p>
           </div>
           <h6 className="mt-5">Exercise Details</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
@@ -94,7 +95,7 @@ function App() {
           </div>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
             <span>Break Time</span>
-            <span>10s</span>
+            <span>{breakTime}</span>
           </div>
           <button className="bg-[#395B64] p-5 text-[#E7F6F2] hover:bg-[#A5C9CA] hover:text-[#395B64] mt-5">
             Mark As Complete

@@ -1,0 +1,44 @@
+[
+  {
+    "img": "images/squat.jpg",
+    "name": "Squats",
+    "info": "A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up.",
+    "age": "20-25",
+    "time": 45
+  },
+  {
+    "img": "images/Pushups.jpg",
+    "name": "Push-up",
+    "info": "The push-up is a common calisthenics exercise beginning from the prone position. By raising and lowering the body using the arms, push-ups exercise the pectoral muscles, triceps, and anterior deltoids",
+    "age": "20-25",
+    "time": 45
+  },
+  {
+    "img": "images/lunges.jpg",
+    "name": "Lunge",
+    "info": "A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind.",
+    "age": "20-25",
+    "time": 30
+  },
+  {
+    "img": "images/pullups.jpg",
+    "name": "Pull-Up",
+    "info": "A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up. As this happens, the elbows flex and the shoulders adduct and extend to bring the elbows to the torso.",
+    "age": "20-25",
+    "time": 30
+  },
+  {
+    "img": "images/deadlift.gif",
+    "name": "Deadlift",
+    "info": "The deadlift is a weight training exercise in which a loaded barbell or bar is lifted off the ground to the level of the hips, torso perpendicular to the floor, before being placed back on the ground. It is one of the three powerlifting exercises, along with the squat and bench press.",
+    "age": "20-25",
+    "time": 25
+  },
+  {
+    "img": "images/plank.jpg",
+    "name": "Plank",
+    "info": "The plank is an isometric core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time.",
+    "age": "20-25",
+    "time": 25
+  }
+]

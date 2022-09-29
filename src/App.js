@@ -9,6 +9,7 @@ function App() {
   const [data, setData] = useState([]);
   const [workoutTime, setWorkoutTime] = useState(0);
   const [breakTime, setBreakTime] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function fetchData() {
@@ -32,8 +33,14 @@ function App() {
     }
   }, []);
 
-  const handleAddToList = (time, idx) => {
-    setWorkoutTime(workoutTime + time);
+  const handleAddToList = (e, time) => {
+    if (e.target.innerText === "Add Workout") {
+      e.target.innerText = "Remove";
+      setWorkoutTime(workoutTime + time);
+    } else {
+      e.target.innerText = "Add Workout";
+      setWorkoutTime(workoutTime - time);
+    }
   };
 
   const showToastMessage = () => {
@@ -42,10 +49,19 @@ function App() {
     });
   };
 
-  const handleBreakTime = (time) => {
-    localStorage.setItem("break-time", time);
+  const handleBreakTime = (e, time) => {
+    removeClass();
+    e.currentTarget.classList.add("selected");
     setBreakTime(time);
+    localStorage.setItem("break-time", time);
   };
+
+  function removeClass() {
+    let elements = document.querySelectorAll(".break-time");
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].classList.remove("selected");
+    }
+  }
 
   return (
     <div className="">
@@ -71,7 +87,7 @@ function App() {
                       item={item}
                       key={idx}
                       handleClick={handleAddToList}
-                      idx={idx}
+                      isClicked={isClicked}
                     />
                   ))}
             </div>
@@ -86,7 +102,7 @@ function App() {
               <p>Bashabo,Dhaka</p>
             </div>
           </div>
-          <div className="bg-[#A5C9CA] p-2 md:p-4 rounded-md flex justify-evenly">
+          <div className="bg-[#A5C9CA] p-2 md:p-4 rounded-md flex justify-evenly items-center">
             <div>
               <p>60kg</p>
               <p>Weight</p>
@@ -101,20 +117,35 @@ function App() {
             </div>
           </div>
           <h6 className="mt-5">Add Break</h6>
-          <div className="bg-[#A5C9CA] p-2 md:p-4 rounded-md flex justify-evenly">
-            <p onClick={() => handleBreakTime(10)} className="cursor-pointer">
+          <div className="bg-[#A5C9CA] p-2 md:p-4 rounded-md flex justify-evenly break-time">
+            <p
+              onClick={(e) => handleBreakTime(e, 10)}
+              className="cursor-pointer break-time"
+            >
               10s
             </p>
-            <p onClick={() => handleBreakTime(30)} className="cursor-pointer">
+            <p
+              onClick={(e) => handleBreakTime(e, 30)}
+              className="cursor-pointer break-time"
+            >
               30s
             </p>
-            <p onClick={() => handleBreakTime(20)} className="cursor-pointer">
+            <p
+              onClick={(e) => handleBreakTime(e, 20)}
+              className="cursor-pointer break-time"
+            >
               20s
             </p>
-            <p onClick={() => handleBreakTime(40)} className="cursor-pointer">
+            <p
+              onClick={(e) => handleBreakTime(e, 40)}
+              className="cursor-pointer break-time"
+            >
               40s
             </p>
-            <p onClick={() => handleBreakTime(50)} className="cursor-pointer">
+            <p
+              onClick={(e) => handleBreakTime(e, 50)}
+              className="cursor-pointer break-time"
+            >
               50s
             </p>
           </div>

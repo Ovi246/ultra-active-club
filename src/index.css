@@ -23,3 +23,10 @@ body :is(h1,h2,h3,p,span){
 .info :is(h6,span,p){
   color: black;
 }
+
+.selected {
+  background-color: #395B64;
+  border-radius: 20%;
+  padding: 5px;
+  color: white !important;
+}

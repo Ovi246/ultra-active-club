@@ -4,6 +4,7 @@ import Card from "../src/components/Card";
 
 function App() {
   const [data, setData] = useState([]);
+  const [workoutTime, setWorkoutTime] = useState(0);
   const [loading, setLoading] = useState(false);
 
   async function fetchData() {
@@ -19,6 +20,10 @@ function App() {
       setLoading(false);
     });
   }, []);
+
+  const handleAddToList = (time, idx) => {
+    setWorkoutTime(workoutTime + time);
+  };
 
   return (
     <div className="">
@@ -41,7 +46,14 @@ function App() {
             <div className="grid grid-cols-3 gap-5">
               {loading
                 ? "loading"
-                : data.map((item, idx) => <Card item={item} key={idx} />)}
+                : data.map((item, idx) => (
+                    <Card
+                      item={item}
+                      key={idx}
+                      handleClick={handleAddToList}
+                      idx={idx}
+                    />
+                  ))}
             </div>
           </div>
         </div>
@@ -70,19 +82,19 @@ function App() {
           <h6 className="mt-5">Add Break</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-evenly">
             <p>10s</p>
-            <p>20s</p>
             <p>30s</p>
+            <p>20s</p>
             <p>40s</p>
             <p>50s</p>
           </div>
           <h6 className="mt-5">Exercise Details</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
             <span>Total Time</span>
-            <span>2000s</span>
+            <span>{workoutTime}</span>
           </div>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
             <span>Break Time</span>
-            <span>15s</span>
+            <span>10s</span>
           </div>
           <button className="bg-[#395B64] p-5 text-[#E7F6F2] hover:bg-[#A5C9CA] hover:text-[#395B64] mt-5">
             Mark As Complete

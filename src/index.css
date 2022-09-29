@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body > h1,h2,h3,p,span{
+body :is(h1,h2,h3,p,span){
   color: #A5C9CA;
 }
 
@@ -18,4 +18,8 @@ body > h1,h2,h3,p,span{
   width: 100%;
   height: 270px;
   object-fit: cover;
+}
+
+.info :is(h6,span,p){
+  color: black;
 }

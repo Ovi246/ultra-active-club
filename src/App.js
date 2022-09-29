@@ -24,6 +24,13 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const breakTimeExist = localStorage.getItem("break-time");
+    if (breakTimeExist) {
+      setBreakTime(localStorage.getItem("break-time"));
+    }
+  }, []);
+
   const handleAddToList = (time, idx) => {
     setWorkoutTime(workoutTime + time);
   };
@@ -32,6 +39,11 @@ function App() {
     toast.success("Congratulations on Complete !", {
       position: toast.POSITION.TOP_CENTER,
     });
+  };
+
+  const handleBreakTime = (time) => {
+    localStorage.setItem("break-time", time);
+    setBreakTime(time);
   };
 
   return (
@@ -90,11 +102,21 @@ function App() {
           </div>
           <h6 className="mt-5">Add Break</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-evenly">
-            <p onClick={() => setBreakTime(10)}>10s</p>
-            <p onClick={() => setBreakTime(30)}>30s</p>
-            <p onClick={() => setBreakTime(20)}>20s</p>
-            <p onClick={() => setBreakTime(40)}>40s</p>
-            <p onClick={() => setBreakTime(50)}>50s</p>
+            <p onClick={() => handleBreakTime(10)} className="cursor-pointer">
+              10s
+            </p>
+            <p onClick={() => handleBreakTime(30)} className="cursor-pointer">
+              30s
+            </p>
+            <p onClick={() => handleBreakTime(20)} className="cursor-pointer">
+              20s
+            </p>
+            <p onClick={() => handleBreakTime(40)} className="cursor-pointer">
+              40s
+            </p>
+            <p onClick={() => handleBreakTime(50)} className="cursor-pointer">
+              50s
+            </p>
           </div>
           <h6 className="mt-5">Exercise Details</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">

@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 body {
+  background-color: #2C3333;
   margin: 0;
   font-family: 'Noto Sans Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: 'Noto Sans Mono', monospace;
+body > h1,h2,h3,p,span{
+  color: #A5C9CA;
+}
+
+.card > img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
 }

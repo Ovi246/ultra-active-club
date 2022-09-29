@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Card from "../src/components/Card";
+import Questions from "../src/components/Questions";
 
 function App() {
   const [data, setData] = useState([]);
@@ -62,7 +63,7 @@ function App() {
             <h2 className="text-md md:text-xl font-semibold py-5">
               Choose your appropriate exercise
             </h2>
-            <div className="flex flex-col md:grid md:grid-cols-3 gap-5 ">
+            <div className="flex flex-col md:grid md:grid-cols-3 gap-5 mb-5">
               {loading
                 ? "loading"
                 : data.map((item, idx) => (
@@ -74,6 +75,7 @@ function App() {
                     />
                   ))}
             </div>
+            <Questions />
           </div>
         </div>
         <div className="basis-1/4 bg-[#E7F6F2] flex flex-col gap-2 md:gap-10 p-2 md:p-10 info sticky h-screen top-0">

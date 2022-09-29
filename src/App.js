@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Card from "../src/components/Card";
 
@@ -24,6 +26,12 @@ function App() {
 
   const handleAddToList = (time, idx) => {
     setWorkoutTime(workoutTime + time);
+  };
+
+  const showToastMessage = () => {
+    toast.success("Congratulations on Complete !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
   };
 
   return (
@@ -90,16 +98,20 @@ function App() {
           </div>
           <h6 className="mt-5">Exercise Details</h6>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
-            <span>Total Time</span>
+            <span>Total Workout Time</span>
             <span>{workoutTime}</span>
           </div>
           <div className="bg-[#A5C9CA] p-4 rounded-md flex justify-between">
             <span>Break Time</span>
             <span>{breakTime}</span>
           </div>
-          <button className="bg-[#395B64] p-5 text-[#E7F6F2] hover:bg-[#A5C9CA] hover:text-[#395B64] mt-5">
+          <button
+            className="bg-[#395B64] p-5 text-[#E7F6F2] hover:bg-[#A5C9CA] hover:text-[#395B64] mt-5"
+            onClick={showToastMessage}
+          >
             Mark As Complete
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>

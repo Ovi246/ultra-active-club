@@ -12,7 +12,7 @@ const Card = ({ item, handleClick, idx }) => {
         className="bg-[#395B64] p-5 text-[#E7F6F2] hover:bg-[#E7F6F2] hover:text-[#395B64]"
         onClick={() => handleClick(item.time, idx)}
       >
-        Add to List
+        Add Workout
       </button>
     </div>
   );
